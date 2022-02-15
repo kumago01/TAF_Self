@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Artifacts for TAF
-        path: target/
+        path: public
         if-no-files-found: error
 
   test:
