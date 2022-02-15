@@ -1,0 +1,35 @@
+name: Test on push , in line with other tests in the org
+
+on:
+  push:
+    branches: [main]
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup jdk 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: 8
+      - name: setup maven
+        uses: stCarolas/setup-maven@v4
+        with:
+          maven-version: 3.6.3
+      - name: build with maven
+        uses: LexisNexis-GHA-Public/jfrog-maven@v1.0-test
+        with:
+          build-name: ${{ env.BUILD_NAME }}
+          build-number: ${{ github.run_number }}
+          build-type: "maven-build"
+          resolve-server-id: ${{ env.SERVER_ID }}
+          deploy-server-id: ${{ env.SERVER_ID }}
+          resolve-snapshot-repository: ${{ env.RELEASE_GLB_RESOLVE_REPO }}
+          deploy-snapshot-repository: ${{ env.SNAPSHOT_REPO }}
+          resolve-releases-repository: ${{ env.RELEASE_GLB_RESOLVE_REPO }}
+          deploy-releases-repository: ${{ env.RELEASE_REPO }}
+          jfrog-project: ${{ env.JFROG_CLI_BUILD_PROJECT }}
