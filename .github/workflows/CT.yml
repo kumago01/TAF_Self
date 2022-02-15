@@ -21,6 +21,8 @@ jobs:
         uses: stCarolas/setup-maven@v4
         with:
           maven-version: 3.6.3
+      - name: setup jfrog cli
+        uses: jfrog/setup-jfrog-cli@v1
       - name: build with maven
         uses: LexisNexis-GHA-Public/jfrog-maven@v1.0-test
         with:

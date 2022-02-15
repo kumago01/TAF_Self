@@ -26,7 +26,10 @@ jobs:
       run: pwd
     - name: list the contents
       run: ls -latr
+    - name: install latest chrome
+      uses: browser-actions/setup-chrome@latest
+      run: chrome --version
     - name: Build with Maven
-      run: mvn clean test -o
+      run: mvn clean test
     - name: list the contents after the maven run for reporting from VM
       run: ls -latr
