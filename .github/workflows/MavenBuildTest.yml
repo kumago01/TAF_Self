@@ -29,7 +29,7 @@ jobs:
     - name: install chrome on VM
       uses: browser-actions/setup-chrome@latest
     - name: check the chrome version
-      uses: chrome --version
+      run: chrome --version
     - name: Build with Maven
       run: mvn clean test
     - name: list the contents after the maven run for reporting from VM
