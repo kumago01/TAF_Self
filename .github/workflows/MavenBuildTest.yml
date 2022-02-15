@@ -20,16 +20,10 @@ jobs:
         java-version: '8'
         distribution: 'zulu'
         cache: maven
-    - name: check the directory
-      run: pwd
-    - name: list the contents
-      run: ls -latr
 #    - name: install chrome on VM
 #      uses: browser-actions/setup-chrome@latest
 #    - name: check the chrome version
 #      run: chrome --version
-    - name: change directory
-      run: cd TAF/
     - name: Build with Maven
       working-directory: TAF/
       run: |
