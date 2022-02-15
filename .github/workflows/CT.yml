@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 8
+          distribution: zulu
       - name: setup maven
         uses: stCarolas/setup-maven@v4
         with:
