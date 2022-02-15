@@ -35,7 +35,7 @@ jobs:
     - name: upload artifacts to github
       uses: actions/upload-artifact@master
       with:
-        name: webpack Artifacts for TAF
+        name: webpack Artifacts
         path: public/
 
   test:
@@ -48,7 +48,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
         with:
-          name: webpack Artifacts for TAF
+          name: webpack Artifacts
           path: public
       - name: maven test
         run: mvn test
+        env:
+          CI: true
