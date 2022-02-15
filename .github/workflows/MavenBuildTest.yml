@@ -26,8 +26,10 @@ jobs:
       run: pwd
     - name: list the contents
       run: ls -latr
-    - name: check the chrome version on VM
-      run: chrome --version
+    - name: install chrome on VM
+      uses: browser-actions/setup-chrome@latest
+    - name: check the chrome version
+      uses: chrome --version
     - name: Build with Maven
       run: mvn clean test
     - name: list the contents after the maven run for reporting from VM
