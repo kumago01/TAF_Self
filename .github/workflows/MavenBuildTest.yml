@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 8
@@ -31,6 +29,26 @@ jobs:
 #    - name: check the chrome version
 #      run: chrome --version
     - name: Build with Maven
-      run: mvn clean test
+      run: mvn clean
     - name: list the contents after the maven run for reporting from VM
       run: ls -latr
+    - name: upload artifacts to github
+      uses: actions/upload-artifact@master
+      with:
+        name: webpack Artifacts for TAF
+        path: public/
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-2016]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@master
+        with:
+          name: webpack Artifacts for TAF
+          path: public
+      - name: maven test
+        run: mvn test
