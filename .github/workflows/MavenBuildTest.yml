@@ -37,6 +37,7 @@ jobs:
       with:
         name: Artifacts for TAF
         path: target/
+        if-no-files-found: error
 
   test:
     runs-on: ubuntu-latest
