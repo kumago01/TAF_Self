@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Artifacts for TAF
-        path: TAF_Self
+        path: src
         if-no-files-found: error
 
   test:
@@ -50,7 +50,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: Artifacts for TAF
-          path: TAF_Self
+          path: src
       - name: maven test
         run: mvn test
         env:
