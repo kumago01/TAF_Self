@@ -5,12 +5,11 @@
 <!--        <classes>-->
 <!--            <class name="" />-->
 <!--        </classes>-->
-<!--    </test>-->
+    </test>
 
     <test name="Regression1">
-<!--        <classes>-->
-<!--            <class name="test.sample.ParameterSample"/>-->
-<!--            <class name="test.sample.ParameterTest"/>-->
-<!--        </classes>-->
+        <classes>
+            <class name="DemoTest"/>
+        </classes>
     </test>
 </suite>

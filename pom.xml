@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
         <maven.compiler.version>3.9.0</maven.compiler.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <selenium.java.version>4.1.2</selenium.java.version>
@@ -19,7 +19,7 @@
         <apache.poi.ooxml.version>5.2.0</apache.poi.ooxml.version>
         <extent.reports.version>5.0.9</extent.reports.version>
         <jasypt.version>1.9.3</jasypt.version>
-        <WebdriverManager.version>5.0.3</WebdriverManager.version>
+        <WebdriverManager.version>3.8.1</WebdriverManager.version>
     </properties>
 
 
@@ -86,7 +86,7 @@
                 <version>${maven.surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${TestSuiteXML}</suiteXmlFile>
+                        <suiteXmlFile>src/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

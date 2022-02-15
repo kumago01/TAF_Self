@@ -23,6 +23,7 @@ public class Base {
                 break;
             case CHROME:
                 WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
                 break;
         }
         return driver;
