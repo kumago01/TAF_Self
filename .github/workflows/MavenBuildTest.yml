@@ -10,13 +10,6 @@ on:
     branches: [ main ]
 
 jobs:
-  preRequisite:
-    runs-on: ubuntu-latest
-    steps:
-      - name: install latest chrome
-        uses: browser-actions/setup-chrome@latest
-        run: chrome --version
-
   build:
 
     runs-on: ubuntu-latest
@@ -33,6 +26,9 @@ jobs:
       run: pwd
     - name: list the contents
       run: ls -latr
+    - name: install latest chrome
+    - uses: browser-actions/setup-chrome@latest
+      run: chrome --version
     - name: Build with Maven
       run: mvn clean test
     - name: list the contents after the maven run for reporting from VM
